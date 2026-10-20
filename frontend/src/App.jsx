@@ -315,8 +315,19 @@ const addTask = async () => {
     { label: "Offers", value: applications.filter(a => a.status === "Offer" || a.status === "Accepted").length, icon: CircleCheck, color: "#c17c1b", bg: "#fff4df" },
     { label: "Tasks Pending", value: tasks.filter(t => !t.done).length, icon: CheckSquare, color: "#a35cc8", bg: "#f7eafa" },
   ];
-  if (!isLoggedIn) {
-  return <Login onLogin={() => setIsLoggedIn(true)} />;
+const [authPage, setAuthPage] = useState("login");
+
+if (!isLoggedIn) {
+  return authPage === "login" ? (
+    <Login
+      onLogin={() => setIsLoggedIn(true)}
+      onSwitchToSignUp={() => setAuthPage("signup")}
+    />
+  ) : (
+    <SignUp
+      onSwitchToLogin={() => setAuthPage("login")}
+    />
+  );
 }
 
   return (
