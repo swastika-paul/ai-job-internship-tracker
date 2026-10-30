@@ -1,12 +1,29 @@
 import Login from "./Login";
 import SignUp from "./SignUp";
+import AIAnalyzer from "./AIAnalyzer";
 import { useState, useMemo, useEffect } from "react";
 import {
-  LayoutDashboard, BriefcaseBusiness, CheckSquare, Settings,
-  Search, Bell, Plus, MapPin, CalendarDays, Clock3,
-  ExternalLink, Pencil, Trash2, X, ChevronDown,
-  GraduationCap,TrendingUp, CircleCheck,
-  CircleDashed, Menu
+  LayoutDashboard,
+  BriefcaseBusiness,
+  CheckSquare,
+  Settings,
+  Search,
+  Bell,
+  Plus,
+  MapPin,
+  CalendarDays,
+  Clock3,
+  ExternalLink,
+  Pencil,
+  Trash2,
+  X,
+  ChevronDown,
+  GraduationCap,
+  TrendingUp,
+  CircleCheck,
+  CircleDashed,
+  Menu,
+  Sparkles
 } from "lucide-react";
 import "./App.css";
 
@@ -338,10 +355,11 @@ if (!isLoggedIn) {
         <div className="workspace-label">WORKSPACE</div>
         <nav>
           {[
-            { label: "Dashboard", icon: LayoutDashboard },
-            { label: "Applications", icon: BriefcaseBusiness },
-            { label: "Tasks", icon: CheckSquare },
-          ].map(({ label, icon: Icon }) => (
+  { label: "Dashboard", icon: LayoutDashboard },
+  { label: "Applications", icon: BriefcaseBusiness },
+  { label: "Tasks", icon: CheckSquare },
+  { label: "AI Analyzer", icon: Sparkles },
+].map(({ label, icon: Icon }) => (
             <button key={label} className={`nav-item ${page === label ? "active" : ""}`} onClick={() => { setPage(label); setMobileMenu(false); }}>
               <Icon size={19}/><span>{label}</span>{label === "Tasks" && <span className="nav-count">{tasks.filter(t=>!t.done).length}</span>}
             </button>
@@ -392,6 +410,7 @@ if (!isLoggedIn) {
           {page === "Tasks" && <section className="panel page-panel"><div className="page-title-row"><div><div className="eyebrow">STAY ORGANIZED</div><h1>My tasks</h1><p>Plan the next step in your career journey.</p></div><button className="primary-button" onClick={addTask}><Plus size={18}/> Add task</button></div><div className="task-progress"><div><strong>{tasks.filter(t=>t.done).length} completed</strong><span>{tasks.filter(t=>!t.done).length} remaining</span></div><div className="progress-track"><div style={{width:`${tasks.length ? tasks.filter(t=>t.done).length/tasks.length*100 : 0}%`}}/></div></div><div className="task-list large-task-list">{tasks.map(t=><TaskRow key={t.id} task={t} onToggle={toggleTask}/>)}</div></section>}
 
           {page === "Settings" && <section className="panel page-panel"><div className="eyebrow">PREFERENCES</div><h1>Settings</h1><p>Your workspace settings will be available here.</p><div className="settings-card"><GraduationCap size={24}/><div><strong>Career workspace</strong><p>Track jobs, internships, tasks and interview progress.</p></div></div></section>}
+          {page === "AI Analyzer" && <AIAnalyzer />}
         </div>
       </main>
 

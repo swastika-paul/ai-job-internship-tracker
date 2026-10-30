@@ -1,0 +1,159 @@
+
+.ai-page {
+  padding: 30px;
+  max-width: 1100px;
+  margin: auto;
+  color: #25254a;
+}
+
+.ai-heading {
+  margin-bottom: 25px;
+}
+
+.ai-heading span {
+  color: #6665e8;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.ai-heading h1 {
+  font-size: 28px;
+  margin: 10px 0;
+}
+
+.ai-heading p {
+  color: #777;
+}
+
+.ai-input-card,
+.ai-result-card,
+.ai-match-card {
+  background: white;
+  padding: 24px;
+  border: 1px solid #e8e8f2;
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+
+.ai-input-card label {
+  display: block;
+  font-weight: 600;
+  margin: 15px 0 8px;
+}
+
+.ai-input-card textarea,
+.ai-input-card input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ddd;
+  border-radius: 9px;
+  font: inherit;
+  box-sizing: border-box;
+  outline-color: #6665e8;
+}
+
+.ai-input-card button {
+  margin-top: 20px;
+  padding: 13px 22px;
+  border: none;
+  border-radius: 9px;
+  background: #6665e8;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ai-input-card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.ai-error {
+  color: #dc2626;
+}
+
+.ai-match-card {
+  text-align: center;
+}
+
+.match-number {
+  font-size: 42px;
+  font-weight: 700;
+  color: #6665e8;
+  margin: 12px;
+}
+
+.match-track {
+  height: 10px;
+  background: #eee;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.match-progress {
+  height: 100%;
+  background: #6665e8;
+  border-radius: 20px;
+  transition: width 0.3s;
+}
+
+.ai-result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 15px;
+}
+
+.skill-list span {
+  padding: 8px 12px;
+  background: #eeeeff;
+  color: #5554c7;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.skill-list.matching span {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.skill-list.missing span {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.ai-result-card li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.interview-question {
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.interview-question p {
+  color: #666;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .ai-page {
+    padding: 16px;
+  }
+
+  .ai-result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-heading h1 {
+    font-size: 23px;
+  }
+}
